@@ -1,0 +1,28 @@
+#container {
+    width: 800px;
+    height: 800px;
+    background-color: aquamarine;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.square {
+    width: 48px;
+    height: 48px;
+    background-color: blue;
+    border: solid 1px black;
+}
+
+body {
+    background-color:salmon;
+    text-align: center;
+}
+
+.square32 {
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+}
