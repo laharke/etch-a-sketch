@@ -3,15 +3,15 @@
     height: 800px;
     background-color: aquamarine;
     position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(32, 1fr);
 }
 
 .square {
-    width: 48px;
-    height: 48px;
+    width: auto;
+    height: auto;
     background-color: blue;
     border: solid 1px black;
 }
@@ -21,8 +21,3 @@ body {
     text-align: center;
 }
 
-.square32 {
-    width: 25px;
-    height: 25px;
-    background-color: blue;
-}
