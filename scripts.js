@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 const myButton = document.querySelector('#resetButton');
-
+let currentColor = 'black';
 
 //funcion para que al entrar a una caja con el mouse, se pinte de negro. Luego puedo cambiar el 'black' por cualquier color si lo meto dentro de una funcion
 function paintBoxes (color){
@@ -12,12 +12,22 @@ function paintBoxes (color){
 }
 };
 
+// function to get a random color
+function getRandomColor(){
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+}
+
 
 // funcionabilidad el boton de RESET, loopeo por todas las cajas y pongo su color en BLUE o lo que se me cante, podria remeplzar con paintBoxes('blue') y seria mas readable
 myButton.addEventListener('click', () => {
     let boxes = document.querySelectorAll('.square');
     for (let i = 0; i < boxes.length; i++) {
-        boxes[i].style.backgroundColor = 'blue';
+        boxes[i].style.backgroundColor = 'white';
     }
 });
 
@@ -41,7 +51,7 @@ createGrid(32);
 //Selecciono todas las boxes dentro del conteiner
 let boxes = document.querySelectorAll('.square');
 //llamo la funcion paint boxes para mandar el color que deseo, como default dejo el negro, puedo agregar botones con otros colores.
-paintBoxes('black');
+paintBoxes(currentColor);
 
 //debo conseguir input de usuario por si queire hacer el RESIZE de la GRID, para esto obtengo el valor del input o de un promt
 //luego de obtener el input, un button event listener que sea aPPLy o algo asi para que se ponga en marcha los siguientes pasos
@@ -49,17 +59,36 @@ paintBoxes('black');
 //por ultimo, debo re seleccionar lsa boxes maybe
 //y volver a llamr a paint boxes
 //getting the reference i need to beging the resize on command
-const inputValue = document.querySelector('#inputValue');
-const resizeButton = document.querySelector('#resizeButton');
 
-//adding the function to get the value from the inputbox when the users clicks the resizebutton
-resizeButton.addEventListener('click', () =>{
-    while (container.firstChild) {
+//making the resize slider work
+const para = document.querySelector('#sizePara');
+range.addEventListener('input', () => {
+  let size = range.value;
+  para.textContent = size;
+  while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
-    let size = inputValue.value;
-    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-    createGrid(size);
-    paintBoxes('black');
+  container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  createGrid(size);
+  paintBoxes('black');
 });
+
+//making the color picker work
+const colorPicker = document.querySelector('#color');
+colorPicker.addEventListener('input', () => {
+  color = colorPicker.value;
+  console.log(color);
+  paintBoxes(`${color}`)
+});
+
+//adding the rainbow color function to the button
+const rainbowButton = document.querySelector('#rainbowButton');
+
+rainbowButton.addEventListener('click', () => {
+    let boxes = document.querySelectorAll('.square');
+    for (let i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener('mouseenter', (event) => {
+        event.target.style.backgroundColor = getRandomColor();
+    })
+}});

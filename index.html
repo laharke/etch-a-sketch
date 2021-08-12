@@ -9,16 +9,20 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
+    <div id="header">
+        <p>Color</p>
+        <input id="color" type="color">
+        <p>Grid Size</p>
+        <input id="range" type="range" min="1" max="100" value="32"><p id='sizePara'>32</p>
+    </div>
     <div>
-        <p>Input the size of the grid you want (min 1, max 100)</p>
-        <input id='inputValue'> <button id='resizeButton'>RESIZE</button>
+        <button id='rainbowButton'>Rainbow</button>
     </div>
     <br>
     <button id='resetButton'>RESET </button>
     <br>
     <br>
     <div id="container">
-
     </div>
 </body>
 </html>
