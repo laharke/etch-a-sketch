@@ -6,23 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/e09b5770e3.js" crossorigin="anonymous"></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div id="header">
-        <p>Color</p>
-        <input id="color" type="color">
-        <p>Grid Size</p>
-        <input id="range" type="range" min="1" max="100" value="32"><p id='sizePara'>32</p>
+    <header>
+        <p>Etch-a-Sketch</p>
+    </header>
+    <div id='headcontainer'>
+        <div id="header">
+            <p>Color</p>
+            <input id="color" type="color">
+            <p>Grid Size</p>
+            <input id="range" type="range" min="1" max="100" value="32"><p id='sizePara'>32</p>
+            <button class="button" id='rainbowButton'>Rainbow</button>
+            <button class="button" id='resetButton'> RESET </button>
+        </div>
     </div>
-    <div>
-        <button id='rainbowButton'>Rainbow</button>
-    </div>
-    <br>
-    <button id='resetButton'>RESET </button>
-    <br>
-    <br>
     <div id="container">
     </div>
+    <br>
+    <footer class="footer">
+        <p>Made by 
+            <a href="https://github.com/Laharke" target="_blank">
+            <i class="fab fa-github"></i>
+            Laharke</a>
+        </p>
+      </footer>
 </body>
 </html>

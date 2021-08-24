@@ -71,7 +71,7 @@ range.addEventListener('input', () => {
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   createGrid(size);
-  paintBoxes('black');
+  paintBoxes(currentColor);
 });
 
 //making the color picker work
@@ -79,7 +79,8 @@ const colorPicker = document.querySelector('#color');
 colorPicker.addEventListener('input', () => {
   color = colorPicker.value;
   console.log(color);
-  paintBoxes(`${color}`)
+  currentColor = `${color}`;
+  paintBoxes(currentColor);
 });
 
 //adding the rainbow color function to the button
